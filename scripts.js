@@ -6,12 +6,19 @@ form.addEventListener("submit", (event) => {
   const entries = new FormData(event.target);
   const { dividend, divider } = Object.fromEntries(entries);
 
-  // Validation for empty inputs
+  // Validation
+
+  // Empty inputs
   if (dividend.trim() === "" || divider.trim() === "") {
     result.innerText =
       "Division not performed. Both values are required in inputs. Try again";
+    // Dividing by 0
+  } else if (divider == 0) {
+    result.innerText =
+      "Division not performed. Invalid number provided. Try again";
+    console.error("Error: Division by zero");
+    // Results displayed as whole number
   } else {
-    // Whole number result
     result.innerText = Math.floor(dividend / divider);
   }
 });
