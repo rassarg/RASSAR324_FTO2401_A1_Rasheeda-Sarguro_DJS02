@@ -10,10 +10,12 @@ form.addEventListener("submit", (event) => {
 
   // Empty inputs validation
   if (dividend.trim() === "" || divider.trim() === "") {
+    result.classList.add("error-message");
     result.innerText =
       "Division not performed. Both values are required in inputs. Try again";
     // Dividing by 0 error
   } else if (divider == 0) {
+    result.classList.add("error-message");
     result.innerText =
       "Division not performed. Invalid number provided. Try again";
     console.error("Error: Division by zero");
